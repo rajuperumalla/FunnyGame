@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="background-color:blu
+;">
+    <h1>nest in nested objects</h1>
+    <script>
+        const person = {
+  name: 'John',
+  age: 30,
+  address: {
+    city: 'New York',
+    country: 'USA',
+    coordinates: {
+        maps:"google",
+        locationn:
+        {
+            latitude: 40.7128,
+            longitude: -74.0060
+
+        }
+    }
+  }
+};
+
+const {name, age, address:{city,country,coordinates:{maps,locationn:{latitude,longitude}}}}=person;
+
+console.log(name);       // 'John'
+console.log(age);        // 30
+console.log(city);       // 'New York'
+console.log(country);    // 'USA'
+console.log(latitude);   // 40.7128
+console.log(longitude);  // -74.0060
+console.log(`this is longitude`,longitude);
+console.log(latitude);
+
+    </script>
+</body>
+</html>

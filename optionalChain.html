@@ -1,0 +1,94 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-color: blue;
+            color: white;
+        }
+        h1{
+            color: red;
+            text-align: center;
+        }
+        .usercred{
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>The Main Page</h1>
+    <div class="usercred">
+        userName: <input type="text" name="username" id="username"> <br> <br>
+        password: <input type="password" name="password" id="password"> <br><br> 
+        &nbsp; &nbsp;&nbsp; &nbsp; <input type="submit" value="submit " id="submit"> &nbsp;&nbsp;
+        <input type="reset" value="reset" id="reset">
+        </div>
+        <script>
+        const user = {
+  name: "John",
+  address: {
+    city: "New York",
+    zipcode: 12345
+  }
+};
+
+const city = user?.address?.city;
+console.log(city);  // Output: "New York"
+
+const country = user?.address?.country??"not registered";
+console.log(country);  // Output: undefined
+
+    </script>
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Login Page</title>
+  <script>
+    function submitForm() {
+      let userId = document.getElementById("userId").value;
+      let password = document.getElementById("password").value;
+
+      // Perform login validation here
+      // You can customize the logic based on your requirements
+
+      if (userId === "admin" && password === "password") {
+        alert("Login successful!");
+      } else {
+        alert("Login failed. Please try again.");
+      }
+    }
+
+    function resetForm() {
+      document.getElementById("userId").value = "";
+      document.getElementById("password").value = "";
+    }
+    document.addEventListener("keydown",function(e){
+        if(e.key==="Enter"){
+            submitForm();
+        }
+        if(e.key==="Delete")
+        {
+            resetForm();
+        }
+    });
+  </script>
+</head>
+<body>
+  <h1>Login Page</h1>
+  <form>
+    <label for="userId">User ID:</label>
+    <input type="text" id="userId" required><br><br>
+    <label for="password">Password:</label>
+    <input type="password" id="password" required><br><br>
+    <button type="button" onclick="submitForm()">Submit</button>
+    <button type="button" onclick="resetForm()">Reset</button>
+  </form>
+</body>
+</html>

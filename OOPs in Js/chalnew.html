@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>challenge1</title>
+</head>
+<body>
+    <h1>challenge1</h1>
+    <script>
+        const Car=function(name,speed){
+            this.name=name;
+            this.speed=speed;
+        }
+        Car.prototype.accelerate=function(name,speed){
+            this.speed+=10;
+            console.log(`${this.name} goint At Speed ${this.speed+10}km/h`);
+            
+        }
+        Car.prototype.break=function(name,speed){
+            this.speed-=10;
+            console.log(`${this.name} goint At Speed ${this.speed-10}km/h`);
+            
+        }
+        const benz=new Car("benz",120);
+        console.log(benz);
+        benz.accelerate();
+        benz.accelerate();
+        benz.accelerate();
+        benz.break();
+        benz.break();
+        benz.break();
+        benz.break();
+        /////////// second method to create a class 
+        class PersonC{
+            constructor(firstName,dateOfBirth){
+                this.firstName=firstName;
+                this.dateOfBirth=dateOfBirth;
+            }
+            greet(){
+                console.log(`hi hellow ${this.firstName}`);
+            }
+            calAgeNew(){
+                console.log(2030-this.dateOfBirth);
+            }
+        }
+        const raj=new PersonC("raj",1995);
+        console.log(raj);
+raj.greet();
+raj.calAgeNew();
+    </script>
+    
+</body>
+</html>

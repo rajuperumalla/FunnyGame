@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Object Looping</title>
+    <h1>ObjectLooping</h1>
+    <script>
+        const restNew = {
+            name: "rajuBhaiRestarunt",
+            tiffin: ["idly", "bonda", "chepathi", "poori"],
+            meals: ["biryani", "vegBiryani", ["salds", "breads", "curries"], "curdrices"],
+            order: function (orderTiffin, orderMeals) {
+                return `the Order in Tiffins is ${this.tiffin[orderTiffin]} and meal is ${this.meals[orderMeals]}`;
+            },
+            add: "hyd",
+            contact: {
+                mobile: "93939399393",
+                gmail: "rajperumalla@protonmail.com",
+                instaId: "razzprml"
+            },
+            days: ["sun", "mon", "tue", "wen", "thu", "fri", "sat"],
+            opening: {
+                tue: {
+                    open: "11am",
+                    close: "10pm"
+                },
+                thu: {
+                    open: "12am",
+                    close: "10pm"
+                },
+                sat: {
+                    open: "8am",
+                    close: "10pm"
+                },
+                sun: {
+                    open: 0,
+                    close: 0
+                },
+                cok: {
+                    open: '',
+                    close: 0
+                }
+            },
+        };
+        console.log(restNew);
+        for(const day of Object.keys(restNew.opening))
+        console.log(day);
+        for(const day of Object.values(restNew.opening))
+        console.log(day);
+        for(const [key,{open,close}] of Object.entries(restNew.opening))
+        {
+            console.log(`the day ${key} will open at ${open}`);
+        }
+        console.log("print all days ");
+        
+        for( const i of restNew.days){
+            const totalWorking=restNew.opening[i]?.open ?? "closed";
+            console.log(`the day ${i} is opening at ${totalWorking}`);
+        }
+        console.log("using || output will be ");
+        ///object iterative using entries and values and keys
+
+        for(const [i,{open,close}] of Object.entries(restNew.opening))
+        {
+              
+            console.log(`the day ${i} and open at ${open} and close at ${close}`);
+        }
+        console.log("for(const i of Object.keys(restNew.opening))");
+        for(const i of Object.keys(restNew.opening))
+        {
+              
+            console.log(`the day ${i} `);
+        }
+        console.log(" for(const i of Object.values(restNew.opening))");
+        for(const i of Object.values(restNew.opening))
+        {
+              
+            console.log(i);
+        }
+        console.log("for(const i of Object.entries(restNew.opening))");
+        for(const i of Object.entries(restNew.opening))
+        {
+              
+            console.log(i);
+        }
+        
+    </script>
+    <script>
+        const user = {
+  name: "John",
+  age: undefined
+};
+
+const result = user.age ?? 25;
+console.log(result);  
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

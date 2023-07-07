@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StringPracNew</title>
+</head>
+<body>
+    <h1>StringPracNew</h1>
+    <script>
+        const str1="raju";
+        console.log(str1);
+        const collegeName="anurag group of institutions";
+        console.log(collegeName.slice(0,6));
+        console.log(collegeName.toUpperCase());
+        console.log(collegeName.toLowerCase());
+        console.log(collegeName.toLowerCase());
+        console.log( typeof new String("rajprml0007"));/// this is object 
+        console.log( new String("rajprml0007").slice(-4));///this is string 
+        const bikeStore="    the store located in hyderabad    ";
+        console.log(bikeStore.trim());
+        //// baggage function
+
+        const checkBags=function(items){
+            const bags=items.toLowerCase();
+            if(bags.includes("guns") ||bags.includes("knifes"))
+            console.log("person NOT allowed");
+            else
+            console.log("welcome to the boarding");
+        }
+        checkBags("the person having guns and knifes");
+        checkBags("the person having books only");
+        checkBags("guns and knifes are here");
+       const newStr= bikeStore.trim().split(' ');
+       const [firstName,lastName]="raju peurmalla".split(" ");
+       console.log(firstName,lastName);
+      
+//  const capitalize=function(name){
+//     const names=name.split(' ');
+//     const namesUpper=[];
+//     for(const i of names){
+//         namesUpper.push(i.replace(i[0],i[0].toUpperCase()));
+//     }
+//     console.log(namesUpper.join(' '));
+//  }
+
+// capitalize(collegeName);
+const caps=function(name){
+    const names=name.split(' ');
+    const nameUpper=[];
+    for(const n of names){
+        nameUpper.push(n.replace(n[0],n[0].toUpperCase()));
+    }
+    return nameUpper.join(' ');
+}  
+const muskNumber=function(num){
+    const str=num+'';
+    // const str=String(num);
+    const last=str.slice(-4);
+   return last.padStart(str.length,'x');
+}
+   const conArray=collegeName.split(" ");
+   console.log(conArray);
+   for(const i of conArray){
+       console.log(muskNumber(caps(i)).padEnd(15,`${'x'.repeat(i+1)}`));
+
+   }
+   const str11 = "Hello, World!";
+const newStr1 = str11.replace("o", "x");
+console.log(newStr1); 
+
+    </script>
+    
+</body>
+</html>

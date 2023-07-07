@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="tailwindex.css">
+    <script src="https://cdn.lordicon.com/bhenfmcm.js"></script>
+</head>
+<body style="background-color:black;color:white;text-align: center;" class="shake">
+    <h1>The Game
+        <lord-icon
+            src="https://cdn.lordicon.com/bzqxpovj.json"
+            trigger="loop"
+            colors="primary:yellow,secondary:red"
+            style="width:50px;height:50px">
+        </lord-icon>
+    </h1>
+    <h1 class="wingame">Funny Game  &nbsp;(Enter a value between 1 to 20..)</h1>  
+    <h2 class="count" style="text-align:center;margin-top:10px;">Number of count is 5
+    </h2>
+    <p id="guessvalue" class="guessvalue">X</p> 
+        <div class="celeb">    <lord-icon
+        src="https://cdn.lordicon.com/tqywkdcz.json"
+        trigger="loop"
+        colors="primary:#4bb3fd,secondary:#f28ba8,tertiary:#ffc738,quaternary:#f24c00"
+        style="width:250px;height:250px">
+    </lord-icon></div>
+    <input type="number" style="font-size:30px;" id="Eval" class="Eval" autofocus><br><br>
+    <input type="button" value="checkHere"  style="font-size:25px;" class="per" onclick="perform()" style="cursor:pointer;">
+    <p id="past"></p>
+    <input type="button" value="changeBg" id="change">
+    <script>
+        document.getElementById("change").addEventListener("click",function()
+        {
+            document.querySelector("body").style.backgroundColor="blue";
+        });
+    </script>
+</body>
+<script src="tailwindex.js"></script>
+</html>

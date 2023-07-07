@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DestructuringPractice</title>
+</head>
+<body>
+    <h1>Destructuring ARRAYS AND OBJECTS</h1>
+    <script>
+        const arr = [100, 200, [400, 500]];
+        // spread Operators
+        console.log(...arr);
+        const [x, y, [a, b]] = arr;
+        // const[x=10,y=44,[a=10,b=55]]=arr;
+        console.log(x, y, a, b);
+        const defArr = [10, 20];// can not reassign values
+        const [i = 30, j = 40, k = 50, l = 60] = defArr;
+        console.log(i, j, k, l);
+
+        //*************Destructuring Objects in all the possible way
+        console.log("//////************Destructuring Objects");
+        const restaruntD={
+            name:"rajuBhaiRestarunt",
+            tiffin:["idly","bonda","chepathi","poori"],
+            meals:["biryani","vegBiryani",["salds","breads","curries"],"curdrices"],
+            order:function(orderTiffin,orderMeals){
+                return `the Order in Tiffins is ${this.tiffin[orderTiffin]} and meal is ${this.meals[orderMeals]}`;
+            },
+            add:"hyd",
+            contact:{
+                mobile:"93939399393",
+                gmail:"rajperumalla@protonmail.com",
+                instaId:"razzprml"
+            },
+            orderOnline:function({name,tIndex,mIndex,add,time}){
+            console.log(`Order Placed Successfully!,the orders are ${this.tiffin[tIndex]} and 
+            ${this.meals[mIndex]} will delivered to ${add} at ${time}`);
+            }   ,
+            orderOnline2:function({name,tIndex,mIndex,add="banjarahills",time="5:40PM"}){
+            console.log(`Order Placed Successfully!,the orders are ${this.tiffin[tIndex]} and 
+            ${this.meals[mIndex]} will delivered to ${add} at ${time}`);
+            }   
+        }
+        //******type one************///
+        console.log(restaruntD.order(2,3));// direct accessing object values 
+        //****** type two*********///
+        const {name,tiffin,meals,order,add,contact:{mobile,gmail,instaId}}=restaruntD;
+        console.log(name);
+        console.log(tiffin);
+        console.log(tiffin.join(','));
+        console.log(meals);
+        console.log(restaruntD.order(2,2));// array is arrays we can use it as combo packs....
+        //output will be "tiffin is chepathi and meal is salds,breads,curries" most useful content 
+        console.log(add);
+        //**********type three******///
+        ////*********Objects in Objects*******////
+        console.log("Objects in the Objects");
+        console.log(mobile);
+        console.log(gmail);
+        console.log(instaId);
+        //******type four*********//
+        restaruntD.orderOnline({ // declear or assign value here.
+            name:"Babu",
+            tIndex:2,
+            mIndex:2,
+            add:"uppal,hyderabad,telanga",
+            time:"4:50"
+        });
+        //******type five********////
+restaruntD.orderOnline2({ // initilization done at original object
+    name:"jhansi",
+    tIndex:1,
+    mIndex:2,
+});
+
+    </script>
+
+</body>
+
+</html>

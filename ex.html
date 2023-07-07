@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .hidden{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <p id="display">show</p>
+    <button id="change">Change</button>
+   <script>
+       console.log(age);
+       var age=23;
+   </script> 
+    <script>
+        document.getElementById('change').addEventListener('click',()=>
+        {
+            document.getElementById('display').classList.toggle('hidden');
+        });
+        document.addEventListener('keydown',function(raj){ 
+            if(raj.key==="Escape"||raj.key==="k"||raj.key==="r")
+            document.getElementById('display').classList.toggle('hidden');
+        });
+        let year=2023;
+        function calc(dob){
+            return year-dob;
+        }
+        console.log(2000);
+        console.log(calc(1992)); 
+        console.log(year); 
+        console.log(2000);
+        
+    </script>
+</body>
+</html>

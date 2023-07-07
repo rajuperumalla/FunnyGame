@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CloserFn examples</title>
+</head>
+<body>
+    <h1>closerfn examples</h1>
+    <script>
+
+        // const calticket=function(flightName,passingers=1,amount=passingers*199){
+        //     passingers=passingers||1;
+        //     amount=amount||199;
+        //     console.log(`${flightName},${passingers},${amount}`);
+        // }
+        // calticket("rock");
+        // calticket("rock",4);
+        // we can print using 
+       const jonas={
+        flightNumber:"123123123",
+        traveller:"jonas soch"
+       }
+       console.log(jonas.flightNumber);
+       const checkIn=function(flightNumber,passinger){
+           if(passinger.flightNumber==="123123123"){
+               alert("welcome");
+            }else{
+                alert('wrong');
+            }
+            const name=passinger.traveller;
+            console.log(name);
+            console.log(jonas.flightNumber);
+            
+        }
+        const changeF=function(flightNm){
+            flightNm.flightNumber=Math.trunc(Math.random()*100000000);
+            return flightNm.flightNumber;
+        }
+        console.log(changeF(jonas));
+        checkIn("123123123",jonas);  
+
+    //    let exNumer=100;
+    //    const newNum=function(enterNumber){
+    //     enterNumber=Math.random()*100000000;
+    //     return enterNumber;
+    //    }
+    //    console.log(newNum(exNumer));//
+    //    console.log(exNumer);// 
+
+    </script>
+</body>
+</html>

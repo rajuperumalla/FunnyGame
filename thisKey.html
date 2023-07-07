@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        const person1 = {
+            name: "John",
+            age: 30
+        };
+        
+        const person2 = {
+            name: "Jane",
+            age: 25
+        };
+        
+        function greet() {
+            return `Hello, my name is ${this.name} and I am ${this.age} years old.`;
+        }
+        
+        const greetPerson1 = greet.bind(person1);
+        const greetPerson2 = greet.bind(person2);
+        
+        console.log(greetPerson1()); // Output: "Hello, my name is John and I am 30 years old."
+        console.log(greetPerson2()); // Output: "Hello, my name is Jane and I am 25 years old."
+        console.log("this next stmt");
+         const pnal={
+            name:"raju",age:30,sex:"male",contact:"9000123242",email:"rajuperumalla@protonmail.com",
+             prnt:function(){
+                 return `the ${this.name} age is ${this.age} and sex is ${this.sex} having a contact ${this.contact} and 
+                 personnel mailid is ${this.email}`; 
+                }
+         }
+         console.log(pnal.name);
+         console.log(pnal.age);
+         console.log(pnal.email);
+        console.log(pnal.prnt());
+        </script>
+        
+    </body>
+    </html>

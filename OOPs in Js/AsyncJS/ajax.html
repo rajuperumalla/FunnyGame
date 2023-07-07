@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AJAX CALLS</title>
+    <style>
+        .country_flag{
+            height:150px;
+            width:300px;
+        }
+        .country_cap{
+            padding-top:0;
+            font-size:20px;
+            color:black;
+            font-weight: bold;
+        }
+        .details{
+            padding-top: 0;
+            margin-top: 0;
+            border: 2px solid green;
+            text-align:left;
+            width:300px;
+        }
+        .country_name{
+            padding:0;
+            margin-top: 0;
+            text-align:left;
+        }
+        .country_cap{
+            margin-top: 0;
+            text-align:left;
+        }
+        .cn{
+            display: flex;
+            padding :20px;
+            margin:20px;
+        }
+        .nyb{
+            width: 150px;
+            height:200px;
+        }
+        </style>
+</head>
+<body>
+    <h1>AJAX CALLS </h1>
+    <h1 style="text-align: center;">&nbsp &nbsp Country - neibhourCountry</h1>
+    <div class="cn">
+        <div id="targetElement">
+        </div>
+        <span></span>
+        <div class="nyb">
+            <div id="targetElement2" style="opacity: .7;">
+            </div>
+        </div>
+    </div>
+
+    <input type="text" name="country" id="ctr">
+  <button id="getctr" onclick="getCountries()">GetCountries</button>
+    <script>
+        const getCountries=function(){
+            const country=document.getElementById("ctr").value;
+            if(!country) return alert("Field should not be empty");
+            const request=new XMLHttpRequest();
+            request.open('GET',`https://countries-api-836d.onrender.com/countries/name/${country}`);
+            // https://restcountries.eu/rest/v2/
+            request.send();
+            // console.log(request.responseText);
+            request.addEventListener("load",function(){
+                // console.log(this.responseText);
+                const data=JSON.parse(this.responseText)[0];
+                if(!data){
+                    return alert("Enter valid Name");
+                }else{
+
+                    console.log(data);
+                    console.log(data.capital);
+                    var element = document.getElementById("targetElement"); 
+                    var element2 = document.getElementById("targetElement2"); 
+                    var html = 
+                    // <p> ${data.capital}</p>
+                    // <p> ${data.area}</p>
+                    // <p> ${data.languages[0].name}</p>
+                    // <p> ${data.latlng[0]}   &nbsp <span>${data.latlng[1]}</span> </p>
+                    // <p> ${data.currencies[0].name}</p>
+                    // <img src="${data.flags.png}">
+                    `<div class="details">
+                        <img src="${data.flags.png}" class="country_flag" alt="image">
+                        <h2 class="country_name">⌘country👮🏻‍♀️: <span>${country}</span></h2>
+                    <h2 class="country_cap" >capital👑:</span><span >${data.capital}</span>
+                        <h3 class="country_lang">LANGUAGE🥁: <span>${data.languages[0].name}</span></h3>
+                        <h3 class="country_cur">CURRENCY🧻: <SPAN>${data.currencies[0].name}</SPAN></h3>
+                        <h3 class="country_lanlat">Langitue-Latitude📌: <p> ${data.latlng[0]}   &nbsp <span>${data.latlng[1]}</span> </p>
+                            <h3 class="country_lanlat">Langitue-Latitude📌: <p> ${data.latlng[0]}   &nbsp <span>${data.borders[0]}</span> </p>
+                                
+                                </div>`
+                                ;
+                                const request2=new XMLHttpRequest();
+                                request2.open('GET',`https://countries-api-836d.onrender.com/countries/alpha/${data.borders[0]}`);
+                                request2.send();
+                                request2.addEventListener("load",function(){
+                                    const data2=JSON.parse(this.responseText);
+                                    console.log(data2);
+                                    var htmlNew=  `<div class="details">
+                                        <img src="${data2.flags.png}" class="country_flag" alt="image">
+                                        <h2 class="country_name">⌘country👮🏻‍♀️: <span>${data2.name}</span></h2>
+                                        <h2 class="country_cap" >capital👑:</span><span >${data2.capital}</span>
+                                            <h3 class="country_lang">LANGUAGE🥁: <span>${data2.languages[0].name}</span></h3>
+                                            <h3 class="country_cur">CURRENCY🧻: <SPAN>${data2.currencies[0].name}</SPAN></h3>
+                                            <h3 class="country_lanlat">Langitue-Latitude📌: <p> ${data2.latlng[0]}   &nbsp <span>${data2.latlng[1]}</span> </p>
+                                                <h3 class="country_lanlat">Langitue-Latitude📌: <p> ${data2.latlng[0]}   &nbsp <span>${data2.borders[0]}</span> </p>
+                                                    
+                                                    </div>`
+                                                    element2.innerHTML=htmlNew;   
+                                                })
+                                                
+                                                // element.insertAdjacentHTML("beforeend", html);
+                                                element.innerHTML=html;   
+                                            }
+                                            });
+                                        };
+                                        document.addEventListener('keydown',function(e){
+                                            if(e.key==='Enter')
+    {
+        getCountries();
+    }
+});
+          
+          </script>
+</body>
+</html>

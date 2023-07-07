@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>challenge3</title>
+</head>
+<body>
+    <h1>challenge3</h1>
+    <script>
+        const Car=function(name,speed){
+            this.name=name;
+            this.speed=speed;
+        }
+        Car.prototype.accelerate=function(name,speed){
+            this.speed+=20;
+            this.charge--;
+            console.log(`${this.name} goint At Speed ${this.speed+10}km/h and charge is ${this.charge}`);
+            
+        }
+        Car.prototype.break=function(name,speed){
+            this.speed-=20;
+            this.charge++;
+            console.log(`${this.name} goint At Speed ${this.speed-10}km/h charge is ${this.charge}`);
+            
+        }
+        const EV=function(name,speed,charge){
+            Car.call(this,name,speed);
+            this.charge=charge;
+        }
+        EV.prototype=Object.create(Car.prototype);
+        const tesla=new EV("tesla",120,23);
+        console.log(tesla);
+        tesla.accelerate();
+        tesla.accelerate();
+        tesla.accelerate();
+        tesla.break();
+        tesla.break();
+        tesla.break();
+        console.log(tesla);
+    </script>
+</body>
+</html>

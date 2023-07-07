@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CodeChallenge3</title>
+</head>
+<body>
+    <h1>CodeChallenge3</h1>
+    <script>
+        const gameEvents= new Map([
+            [17,'GOAL'],
+            [36,'SUBSTITUTE'],
+            [47,'GOAL'],
+            [61,'SUBSTITUTE'],
+            [64,'YELLOW CARD'],
+            [69,'RED CARD'],
+            [70,'SUBSTITUTE'],
+            [72,'SUBSTITUTE'],
+            [76,'GOAL'],
+            [80,'GOAL'],
+            [92,'YELLOW CARD'],
+
+        ]);
+    const events=[...new Set(gameEvents.values())];//...spread op is converts the set into an array....
+    console.log(events);
+    console.log(gameEvents);
+    gameEvents.delete(64);
+    console.log(gameEvents);
+    for (const i of gameEvents)
+    console.log(...i);
+    const avg=[...gameEvents.keys()].shift();// shift means first element of the array 
+    console.log(avg);  //pop means last element of the array...
+     for(const [time, match] of gameEvents)
+     {
+         const half=time<40? "FIRST":"SECOND";
+        console.log(`the ${half} half ${time}:${match}`);
+     }
+    
+
+    </script>
+</body>
+</html>

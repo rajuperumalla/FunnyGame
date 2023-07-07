@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    .my-element {
+      color: blue;
+      font-size: 16px;
+      font-weight: bold;
+    }
+    :root{
+        --primary--background:green;
+        --secondary--background:yellow;
+    }
+  </style>
+</head>
+<body style="background-color: var(--primary--background);">
+  <div class="my-element">Hello, World!</div>
+  <img class="imgs" src="SC Info/img.jpeg" alt="Nothing Display" href="#" show="Off">
+
+  <script>
+    const element = document.querySelector('.my-element');
+
+    const computedStyles = window.getComputedStyle(element);
+    const color = computedStyles.color;
+    const fontSize = computedStyles.fontSize;
+    const fontWeight = computedStyles.fontWeight;
+
+    console.log('Color:', color);
+    console.log('Font Size:', fontSize);
+    console.log('Font Weight:', fontWeight);
+    document.documentElement.style.setProperty("--primary--background","yellow");
+    // used to set the entire property with single code using setProperty 
+    const img1=document.querySelector(".imgs");
+    console.log(img1.src);
+    console.log(img1.alt);
+    console.log(img1.className);
+    console.log(img1.getAttribute("show"));
+    img1.scrollIntoView({
+        behavior:"smooth"
+    })
+    // for smooth scrolling we use this ...
+
+  </script>
+</body>
+</html>

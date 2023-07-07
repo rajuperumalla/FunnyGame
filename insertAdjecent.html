@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>insertAdjacentHTML Example</title>
+  <script>
+    function insertContent() {
+      var element = document.getElementById("targetElement");
+      var html = "<p>New content</p>";
+
+      // Insert the HTML markup after the targetElement
+      element.insertAdjacentHTML("afterend", html);
+//       'beforebegin': Inserts the HTML markup as a sibling immediately before the element.
+// 'afterbegin': Inserts the HTML markup as the first child within the element.
+// 'beforeend': Inserts the HTML markup as the last child within the element.
+// 'afterend'
+    }
+  </script>
+</head>
+<body>
+  <h1>insertAdjacentHTML Example</h1>
+  <div id="targetElement">
+    <p>Existing content</p>
+  </div>
+
+  <button onclick="insertContent()">Insert Content</button>
+</body>
+</html>

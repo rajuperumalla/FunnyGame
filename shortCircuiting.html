@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ShortCircuitingEX</title>
+</head>
+<body>
+    <h1>ShortCircuiting</h1>
+    
+    <script>
+        console.log(''||null||undefined||10);// its find the true value 
+        console.log(null&&''&& null && undefined);// its find the falsi value 
+        const orderValue=0;// here zero is a true value but || taking its a falsi value 
+        // to overcome this problem we use the Nullish Coalescing Operator.
+        const volume=orderValue||99;
+        const volume2=orderValue ?? 99;// it consider zero and '' values as a true values 
+        console.log(volume);//99 is falsi value 
+        console.log(volume2);//0 is true value 
+    </script>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <style>
+            .blast {
+                animation: blast 0.5s linear both;
+            }
+            
+            @keyframes blast {
+                from {
+                    transform: scale(1);
+                }
+                to {
+                    transform: scale(1.5);
+                    opacity: 0;
+                }
+            }
+
+            .blast1 {
+        animation: blast 0.5s linear both;
+    }
+    
+    @keyframes blast1 {
+        0% {
+            transform: scale(1);
+        }
+        50% {
+            transform: scale(1.5);
+            opacity: 0.8;
+        }
+        100% {
+            transform: scale(1);
+            opacity: 1;
+        }
+    }
+            </style>
+</head>
+<body>
+<button onclick="blastEffect1()">Blast a Bomb!</button>
+<button onclick="blastEffect()">Congratulations!</button>
+
+<script>
+    function blastEffect1() {
+        const button = document.querySelector("button");
+        button.classList.add("blast1");
+        setTimeout(() => button.classList.remove("blast1"), 500);
+    }
+</script>
+
+<script>
+    function blastEffect() {
+        const button = document.querySelector("button");
+        button.classList.add("blast");
+        setTimeout(() => button.classList.remove("blast"), 500);
+    }
+</script>
+
+</body>
+</html>

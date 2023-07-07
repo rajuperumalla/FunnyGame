@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>hi this scopping </h1>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat, incidunt.</p>
+    <input type="text">
+    <script>
+        const name="raju";  
+        myFunc(); // Outputs: "Hello World!"
+        function fcr(dob){
+            const age=2023-dob;
+            return `My name is ${name} and my age is ${age}`;
+        }
+        console.log(name);
+        console.log(fcr(1992));
+        const n=20;
+        if(n===20){
+            var firstName="rock";
+        }
+        console.log(firstName);
+        function myFunc() {
+            console.log("Hello World!");
+        }
+        var myFunc1 = function() {
+            console.log("Hello World! function expression");
+        }
+        myFunc1(); // Outputs: TypeError: myFunc is not a function
+        var arrF=(a,b)=>a+b;
+        console.log(arrF(2,3));
+
+        function add(a,b) {
+  return a + b;
+// console.log("this is variable fn");
+}
+
+var sum = add;
+
+console.log(sum(2,10)); // Outputs: 5
+
+
+        </script>
+        <!-- <script>
+            // Disable right-click context menu
+window.addEventListener('contextmenu', function (event) {
+  event.preventDefault();
+}, false);
+
+// Disable key combinations for taking screenshots
+window.addEventListener('keydown', function (event) {
+  // Disable print screen key
+  if (event.keyCode === 44) {
+    event.preventDefault();
+    return false;
+  }
+  // Disable ctrl + shift + i key combination
+  if (event.ctrlKey && event.shiftKey && event.keyCode === 73) {
+    event.preventDefault();
+    return false;
+  }
+  // Disable ctrl + shift + j key combination
+  if (event.ctrlKey && event.shiftKey && event.keyCode === 74) {
+    event.preventDefault();
+    return false;
+  }
+}, false);
+
+        </script> -->
+        <script>
+            let age=30;
+            // console.log(age);//30
+            let oldAge=age;
+            age=31;
+            console.log(age);//31
+            console.log(oldAge); //30
+            const numbers = [1, 2, 3];
+const [a, b, c] = numbers;
+
+console.log(a); // 1
+console.log(b); // 2
+console.log(c); // 3
+// access from the nested arrays 
+   const nestArr=[1,[2,3],4,5];
+   const [x,[y,z],q,r]=nestArr;
+   console.log(x,y,z,q,r);  
+   const defArr=[10,20];
+   const[i=30,j=40,k=50,l=60]=defArr;
+   console.log(i,j,k,l);
+   //////////destructuring Objects 
+   const me={
+                name:"rajprml",
+                age:30,
+                sex:"male",
+                schooling:["abc","xyz","klm","pqr"],
+                qualify:function(name,age){
+                    return `(this is method)the name is ${name} and the age is${age}`;
+                }
+            };
+            const rest=me;
+            console.log(`this is `,rest.name);
+            rest.schooling.push("fffx");//
+            console.log(rest.schooling);
+            console.log(me.schooling);
+            // Renaming to parameters
+            const{name:Fullname,age:old,sex:gender,schooling:study,qualify:cutoff}=me;// changing or modifying name of the parameters
+            console.log(`this is fullname`,Fullname);
+            console.log(study);
+            
+            console.log(cutoff(name,age));
+            console.log(cutoff(Fullname,old));
+            console.log("**************************");
+            console.log(me.qualify("raju",40));
+            console.log(me.schooling.join(','));
+            ///// *****Nested Objects Destructuring ************///
+            const person1 = {
+                    name1: 'Name1',
+                    age1: 30,
+                    fulladdress: {
+                        city1: 'New York',
+                        country1: 'USA',
+                        localArea: {
+                            street: "Bc colony",
+                            doorNo: {
+                                room: "rm",
+                                hall: "hall",
+                                kitchin: "kit"
+                            }
+                        // }
+                        }
+                    }
+                };
+
+const{name1,age1,fulladdress:{localArea:{street,doorNo:{room,hall,kitchin}}}}=person1;
+// const{localArea:{doorNo:{room:"roomsssss",hall="hallssss",kitchin:"kitchinnnnns}"}}=person1;
+
+console.log(name1);
+console.log(age1);
+// console.log(fulladdress);
+// console.log(fulladdress.localArea);
+// console.log(fulladdress.localArea.doorNo.room);
+// console.log();
+// console.log();
+console.log(room);
+console.log(age1);
+console.log(street);
+console.log(room);
+            // console.log(`Me`,me);
+            // const friend=me;
+            // friend.age=20;
+            // console.log(`friend`,friend);
+            // console.log(`Me`,me);
+            // console.log(friend.age);
+            // console.log(me.age);
+        </script>
+</body>
+</html>

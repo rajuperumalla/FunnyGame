@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   <h1>Spread Operators </h1> 
+   <input type="button" value="clickHere">
+   <script>
+   const arr=[1,2,3,4,5];
+   const arr2=[...arr];
+   console.log(arr2);
+   </script>
+   <script>
+     const restaruntD={
+            name:"rajuBhaiRestarunt",
+            tiffin:["idly","bonda","chepathi","poori"],
+            meals:["biryani","vegBiryani",["salds","breads","curries"],"curdrices"],
+            order:function(orderTiffin,orderMeals){
+                return `the Order in Tiffins is ${this.tiffin[orderTiffin]} and meal is ${this.meals[orderMeals]}`;
+            },
+            add:"hyd",
+            contact:{
+                mobile:"93939399393",
+                gmail:"rajperumalla@protonmail.com",
+                instaId:"razzprml"
+            },
+            orderOnline:function({name,tIndex,mIndex,add,time}){
+            console.log(`Order Placed Successfully!,the orders are ${this.tiffin[tIndex]} and 
+            ${this.meals[mIndex]} will delivered to ${add} at ${time}`);
+            }   ,
+            orderOnline2:function({name,tIndex,mIndex,add="banjarahills",time="5:40PM"}){
+            console.log(`Order Placed Successfully!,the orders are ${this.tiffin[tIndex]} and 
+            ${this.meals[mIndex]} will delivered to ${add} at ${time}`);
+            }  , 
+            orderPizza:function(mainIng,...otherIng){
+                console.log(mainIng,otherIng);
+            }
+        }
+        // coping object using spread operators 
+        const restNew={...restaruntD,...arr2};
+        console.log(restNew);
+        const str="rajuperumalla";
+        console.log(...str);
+        restaruntD.orderOnline({ // declear or assign value here.
+            // name:prompt("enterYOurName"),
+            // tIndex:prompt("EnterTiffinName"),
+            // mIndex:prompt("EnterMealsName"),
+            // add:prompt("enterAddress"),
+            // time:prompt("enterTime")
+        });
+        console.log(restaruntD.meals);  
+        console.log(...restaruntD.meals);
+        // const arr3=[...restaruntD.tiffin,prompt("enterName1"),prompt("enterName2")];
+        // console.log(...arr3);
+        const {name,tiffin,meals,order,add,contact:{mobile,gmail,instaId},orderOnline,orderOnline2}=restaruntD;
+
+        const exr=console.log(...meals);
+        console.log(gmail);
+        restaruntD.orderOnline({
+            name:"raju",
+            tIndex:2,
+            mIndex:2,
+            add:"uppal,warangal",
+            time:"4.40"
+        });
+        /// spread operator....
+        const arr10=[1,2,3,4,5,6,8,10,12];
+        const arr11=[...arr10];
+        console.log(...arr10);
+        console.log(arr11);
+       /// rest operator 
+       const [a,b,c,...others]=arr10;
+       console.log(a,b,c,others);
+       console.log(others);
+       console.log(...others);
+       console.log(4,3,1,...others);
+       // we can use other key word or any other what we desired like remaining etc...see below ****
+       const [x,y,...remaining]=arr10;
+       console.log(remaining);
+       // rest operator is mainly used to taking multiple values into the function 
+       // this is the main use case for rest opeator dont forget to use baby
+       const addsAll =function(...numbers){
+        let sum=0;
+        for(i=0;i<numbers.length;i++)
+            sum=sum+numbers[i];
+        console.log(sum);
+       }
+       addsAll(1,2,3,4,44,3);
+       addsAll(1,2);
+       addsAll(...arr10);
+       addsAll(arr);// Output will be 1,2,3,4,5
+       /// it can not destructure the arrays value its display the passing array...only
+      /// to overcome this problem we can use the spread opeator its convert or destructure the array
+       addsAll(...arr);
+       restaruntD.orderPizza('bread','cheeze','butter','spices');
+       restaruntD.orderPizza('bread','cheeze','butter','spices',...arr,...arr10);
+       // except bread all other elements are stored in array....
+
+   </script>
+</body>
+</html>

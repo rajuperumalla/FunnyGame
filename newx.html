@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .b1{
+            background-color:blue;
+            color: white;
+            font-size: larger;
+        }
+  
+        .model{
+            display: block;
+            border:5px solid green;
+            border-radius:1px;
+            text-align: center;
+        }
+        .model2
+        {
+            display:block;
+            border:5px solid black;
+        }
+        .hidden{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>EXAMPLES OF CLASSLISTS</h1>
+    <div class="model">
+        <div class="model2"> 
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut asperiores in beatae odio quo quasi nam expedita accusantium ullam. Repellat soluta nulla quasi magni, veritatis numquam enim temporibus cum incidunt, reiciendis porro illum eveniet nostrum optio laudantium et, quas eos repudiandae natus. Explicabo quam voluptatum ab molestiae nisi magnam quos a doloribus architecto voluptate! Magni, quis eaque velit facilis provident reiciendis minima commodi unde ut? Optio sint esse quae excepturi doloribus cumque nostrum inventore architecto hic velit placeat, pariatur, corrupti magni, ut aspernatur cum mollitia quis numquam molestias qui modi odit eveniet id libero! Commodi dignissimos hic voluptates in adipisci!</p>
+        </div>
+        <button class="btn2">Hide</button>
+        <input type="button" value="clickMeharder" class="btn"> 
+        <p class="para1 hidden">PARA1</p>
+        <p class="para2 hidden">PARA2</p>
+        <p class="para3 hidden">PARA3</p>
+        <p class="para4 hidden">PARA4</p>
+        <p class="para5 hidden">PARA5</p>
+        <p class="para6 hidden">PARA6</p>
+        <script>
+            const ran=Math.trunc(Math.random()*6)+1;
+            console.log(ran);
+            document.querySelector(`.para${ran}`).classList.remove('hidden');
+        </script>
+    </div>
+    <button class="btnnew">Toggle flag</button>
+    <button class="btn3" onclick="frx()"> clickmeToLess</button>
+    <script>
+        var y=document.querySelector(".btn3");
+        function frx(){
+            var x= document.querySelector(".btnnew");
+            x.classList.toggle('hidden');
+            if(y.innerHTML=="clickmeToMore"){
+               y.innerHTML="clickmeToLess";
+            }else{
+               y.innerHTML="clickmeToMore";
+            }
+            // y.innerHTML=="clickmeToMore"?y.innerHTML="clickmeToLess":y.innerHTML=="clickmeToMore";
+        }
+    </script>
+<!-- 
+    <script>
+    var myFlag = false;
+    
+    function toggleFlag() {
+      myFlag.toggle();
+      console.log("Flag is now " + myFlag);
+    }
+    </script> -->
+    
+
+
+    </body>
+<script>
+    /// Everything working fine 
+    console.log(document.querySelector('.btn').value);
+    console.log(document.querySelector('.btn2').textContent);
+    document.querySelector('.btn2').addEventListener("click",function(){
+document.querySelector('.btn').style.display="none";
+document.querySelector('body').classList.add('b1');  
+document.querySelector(".model2").classList.remove('hidden');
+document.querySelector(".btn2").textContent="hide";
+});
+</script>
+<script>
+    document.querySelector(".model2").addEventListener("click",function(){
+        document.querySelector(".model2").classList.add('hidden');
+        document.querySelector(".btn2").textContent="show";
+    });
+    const arr=[];
+    document.addEventListener('keydown',function(e){
+       let collect= e.key;
+       console.log(collect);
+    //    console.log(e);
+       arr.push(collect);
+       // WORKING FINE 
+       if(e.key==='Escape'){
+        //********** code refactor applied here *******//
+        // if(!document.querySelector(".model2").classList.contains('hidden'))
+           document.querySelector(".model2").classList.toggle('hidden');
+        }
+    });
+
+</script>
+<script>
+    let x=23;
+    let y=30;
+    x="raju";
+    console.log(x);//raju will prints this is called dynamic allocation 
+</script>
+</html>

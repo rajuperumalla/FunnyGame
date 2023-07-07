@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Encapsulation</title>
+</head>
+<body>
+    <h1>Encapsulaitons</h1>
+    <script>
+   class Accounts{
+    movements=[];
+    constructor(acNo,currency,pin){
+        this.acNo=acNo;
+        this.currency=currency;
+        this.pin=pin;
+        console.log(`hi welcome ${acNo}`);
+    }
+    // deposit(val){
+    //     this.movements.push(val);
+    //     return this;
+    // }
+    withdral(val){
+        this.movements.push(-val);
+        return this;
+    }
+   }
+   Accounts.prototype.deposit=function(val){
+    this.movements.push(val);
+    return this;
+   }
+   const raj=new Accounts(1212121,"rupees",1111);
+   console.log(raj);
+//    console.log(raj.pin);
+    raj.deposit(200);
+    raj.deposit(200);
+    raj.deposit(200);
+    raj.withdral(200);
+    raj.withdral(100);
+    raj.withdral(400);
+    raj.withdral(600).deposit(500).deposit(10);
+    console.log(raj.movements);
+    // if we want use chaining method we write the 'return' keyword in every block 
+    // raj.withdral(100).deposit(120).withdral(19).deposit(20).withdral(400);
+    // raj.deposit(100000);
+    console.log(raj.movements);
+    console.log(raj.movements.__proto__===Array.__proto__);
+    console.log(raj instanceof Accounts);
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parallel Promises</title>
+</head>
+<body>
+    <h1>Parallel Promsise</h1>
+    <script>
+        // const getCountries=async function(c1,c2,c3){
+
+        //     const data= await Promise.all([ 
+        //     fetch(`https://countries-api-836d.onrender.com/countries/name/${c2}`).then(res=>res.json()),
+        //     fetch(`https://countries-api-836d.onrender.com/countries/name/${c1}`).then(res=>res.json()),
+        //     fetch(`https://countries-api-836d.onrender.com/countries/name/${c3}`).then(res=res.json())]);
+        //         console.log(data.map(d=>d[0].capital));
+        //     }
+        //     getCountries("china","pak","usa");
+        const getCountry=async function(c1,c2,c3){
+           const data=await Promise.all([
+           fetch(`https://countries-api-836d.onrender.com/countries/name/${c1}`).then(res=>res.json()).then(data=>console.log(data[0].capital)),
+           fetch(`https://countries-api-836d.onrender.com/countries/name/${c2}`).then(res=>res.json()).then(data=>console.log(data[0].capital)),
+           fetch(`https://countries-api-836d.onrender.com/countries/name/${c3}`).then(res=>res.json()).then(data=>console.log(data[0].capital))
+        ])
+        }
+        getCountry("usa","bharat","china");
+        8790000141 raju
+    </script>
+</body>
+</html>

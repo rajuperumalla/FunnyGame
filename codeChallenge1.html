@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CodeChallenge1</title>
+</head>
+<body>
+    <h1>CodeChallenge1</h1>
+    <script>
+        const pass={
+            normal:"200",
+            premium:"1100",
+            luxury:"10000"
+        };
+        const game={
+            team1:'Brayern Munche',
+            team2:'Borrussian Datchman',
+            players:[["raju","ravi","ram","rav","ravan","raghu","ramp"],
+        ["sandi","sampu","sachin","sehwag","bhumra","virat","rohit"]],
+        score:'4:0',
+        scored:["raju","ram","sachin","bhumra"],
+        date:'Nov 9th 2023',
+        odds:{
+            team1:1.33,
+            x:3.25,
+            team2:6.5
+        },pass,
+        // Enhanced property of the ES in object literals 
+        address:{
+            state:"telangane",
+            city:"hyderabad",
+            area:{
+                street:"uppal",
+                doorNo:"2-2 BharathNagar",
+                floor:"2"
+            }
+        },
+        days:["sun","mon","tue","wen","thu","fri","sat"],
+        opening:{
+            tue:{
+                open:"11am",
+                close:"10pm"
+            },
+            thu:{
+                open:"12am",
+                close:"10pm"
+            },
+            sat:{
+                open:"8am",
+                close:"10pm"
+            },
+            sun:{
+                open:0,
+                close:0
+            },
+            cok:{
+                
+            }
+        },
+        sum:function(item,item2)
+        {
+            console.log(item+item2);
+        }
+        };
+        //***1 task completed.. player1 and player2 created*******
+        const[player1,player2]=game.players;
+        console.log(player1);
+        console.log(...player1);
+        console.log(player2);
+        console.log(...player2);
+        //****2 task  
+        const septeam=function(keeper,...filders){
+            console.log(`the keeper of the team is ${keeper} and playes are ${filders}`);
+        }
+        septeam(...player1);
+        septeam(...player2);    
+        const allPlayers=[...player1,...player2];
+        console.log(allPlayers);
+        console.log(`the total team Member are ${allPlayers}`);
+        console.log("******substitute players including new players");
+        const subInclude=function(p1,p2,p3,...arr){
+            return [p1,p2,p3,...arr];
+        }
+        console.log(subInclude("rock","rock2","rock3",...player1));
+        console.log("***********ExcludingNewplyer substitute");
+        const subExclude=function(x,x2,x3,arr){
+            return [x,x2,x3,...arr.slice(3)];
+        }
+        console.log(player1);
+        console.log(subExclude("exl1","exl2","exl3",player1));
+        // console.log(subExclude("exl1","exl2","exl3",...player1));
+        const retObj=game.odds;
+        console.log(retObj);
+        console.log(retObj.team1);
+        const{odds:{team1,x:draw,team2}}=game;
+        console.log(team1);
+        console.log(draw);
+        console.log(team2);
+        // iteration or print all the elements one by one 
+        for(const pl of allPlayers.entries())
+        console.log(pl);  
+        // Destructuring arrays in easy method and print the arrays[1.raju] like so
+        for( const plr of allPlayers.entries())// this most effective methode for destructuring the Arrays*************
+        console.log(`${plr[0]+1}.${plr[1]}`);
+        // Methode 2 we can also destructure the elements
+        for(const [i,el] of allPlayers.entries())
+        console.log(`${i+1}.${el}`);
+        console.log(game);
+        if(game.address.land && game.address.area)
+        console.log(game.address.area);
+        console.log(game.address.area?.doorNo);
+        ////**********OPTIONAL CHaINING OPERATOR ********///
+        console.log("optional Chaining Operator");
+        for( const day of game.days)// destructuring arrays and passing in to below stmts
+        // console.log(day);
+        {
+            const workingDay=game.opening[day]?.open ?? "closed";
+           console.log(`on ${day} is working time is ${workingDay}`);
+        }
+        console.log("keeysss")
+        for(const hrs of Object.keys(game.opening)){
+
+            console.log(hrs);
+        }
+        console.log("valuesssss")
+        for(const hrs of Object.values(game.opening)){
+
+            console.log(hrs);
+        }
+        console.log("entries.....")
+        for(const hrs of Object.entries(game.opening)){
+
+            console.log(hrs);
+        }
+        for(const [key,{open,close}] of Object.entries(game.opening)){
+
+       console.log(`on ${key} the opening time is ${open} and closing time is ${close}`);
+        }
+     for(const [i,ptr] of game.scored.entries())
+     console.log(`the ${i+1} goal is hit by ${ptr}`);
+     
+     for(const itr of Object.values(game.odds))
+     console.log(itr,Object.values(game.odds).length);
+     for(const [j,k] of game.scored.entries())
+     console.log(j,k);
+    
+
+
+
+           
+
+
+        
+
+       
+//         for (const key in retObj) {
+//   console.log(retObj[key]);
+// }
+// const person = {
+//   name: 'John',
+//   age: 30,
+//   city: 'New York',
+//   add:{
+//     city:"hyderabad",
+//     area:"greater",
+//     street:"beerappa"
+//   }
+// };
+
+// for (const key in person) {
+//   if (person.hasOwnProperty(key)) {
+//     console.log(person[key]);
+//   }
+// }
+
+    </script>
+</body>
+</html>

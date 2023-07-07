@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Smooth Scroll</title>
+  <style>
+    #section1,
+    #section2,
+    #section3 {
+      height: 400px;
+      margin-bottom: 20px;
+      border: 1px solid black;
+    }
+  </style>
+</head>
+<body>
+  <h1>Smooth Scroll Example</h1>
+  
+  <ul>
+    <li class="nav_link"><a href="#section1" onclick="scrollToSection(event, 'section1')">Section 1</a></li>
+    <li class="nav_link"><a href="#section2" onclick="scrollToSection(event, 'section2')">Section 2</a></li>
+    <li class="nav_link"><a href="#section3" onclick="scrollToSection(event, 'section3')">Section 3</a></li>
+  </ul>
+  
+  <div id="section1">
+    <h2>Section 1</h2>
+    <p>This is the content of Section 1.</p>
+  </div>
+  
+  <div id="section2">
+    <h2>Section 2</h2>
+    <p>This is the content of Section 2.</p>
+  </div>
+  
+  <div id="section3">
+    <h2>Section 3</h2>
+    <p>This is the content of Section 3.</p>
+  </div>
+
+  <script>
+    function scrollToSection(event, sectionId) {
+      event.preventDefault();
+      const section = document.getElementById(sectionId);
+      console.log(section.id);
+      section.scrollIntoView({ behavior: 'smooth' });
+    };
+  </script>
+</body>
+</html>

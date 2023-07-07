@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>CloserFunction Execution</title>
+    </head>
+    <body>
+        <h1>CloserFunctionExectionsss</h1>
+        <input type="number" name="hi" id="inputNum" class="inputNum">
+        <input type="button" value="clickHere" class="per" id="per" onclick="show()">
+        <p id="para"></p>
+    <script>
+        const secureBooking=function(){
+            let passingerCount=0;
+            return function(){
+                passingerCount++;
+                console.log(`${passingerCount} passingers`);
+            };
+        };
+        console.log("securebooking function");
+      secureBooking()();
+      console.log("booker");
+        const booker=secureBooking();
+        booker();
+        booker();
+        booker();
+        let f;
+        const g=function(){
+            const a =23;
+            f=function(){
+                console.log(a*2);
+            }
+        }
+      g();
+      f();
+      console.dir(f);
+      let r="rajuperumalla".split("");
+      let s="rajzzz";
+      console.log(typeof s);
+      console.log(s);
+ console.log(r);
+ console.log(typeof r);
+ console.log(r.join("+"));
+      const arr10=[1,2,2,3,3,4,5,3];
+      console.log(arr10.join('+'));
+      const arrSet=new Set(arr10);
+      console.log(typeof arrSet);
+      console.log(arrSet);
+      console.log(arrSet);
+      console.log(typeof arrSet);
+      console.log(...arrSet);
+      const arr222=arrSet;
+      console.log(arr222);
+      console.log(arr222.clear());
+      console.log(arr222);
+     const arr00=[10,30,-30,40,-24,-100,200,-20];
+    //  console.log(arr00);
+    // type to for 
+
+        for( const elt of arr00){
+            elt>0?console.log(`${elt} credited`):console.log(`${elt} debited`);
+        }
+        // type two 
+        for( const [i,value] of arr00.entries())
+        {  
+            value>0?console.log(`${i+1}:${value} credited`):console.log(`${i+1}:${value} debited`);
+    }
+
+    for(const keyss of arr00.keys()){
+     console.log(keyss);
+    }
+
+    console.log("******** type 33333333");
+   // type 3 
+     arr00.forEach(function(element){
+        element>0?console.log(`${element} credited`):console.log(`${element} debited`);
+     })
+     // type 4 
+  console.log("*********type 4 ********");
+     arr00.forEach(function(val,i,arr){
+   console.log("actual value ",val);
+   console.log("indicate the index value ",i+1);
+     })
+
+     const setNew=new Set([1,2,3,4,5,6,7,8,9,10,11,"raju"]);
+     console.log(setNew);
+     setNew.forEach(function(val,setEle,set1){
+        console.log(setEle);
+        console.log(val);
+        console.log(set1);
+     });
+     const mapex=new Map();
+     let k=document.getElementById("inputNum");
+     mapex.set(1,'one').set(2,'two').set(3,'three').set(4,'four').set(5,'five').set(6,'six').set(7,'seven').set(8,'eight').set(9,'nine').set(10,'ten').set(11,"eleven").set('raju',"perumalla");
+     function show(){
+         for(const j of setNew.values())
+         {
+             if(j==k.value)
+             {
+                 document.getElementById("para").innerHTML=mapex.get(j); 
+                 console.log(mapex.get(j));
+                }
+            }
+            };
+     document.addEventListener("keydown",function(e)
+     {
+        if(e.key==="Enter"||e.key==="Escape"||e.key==="k")
+        {
+         show();
+        }
+    });
+    function showbg(){
+        document.querySelector("body").style.background="red";
+    }
+    document.addEventListener("keydown",function(a){
+         if(a.key==="Enter")
+         {
+          showbg();
+         }
+
+     });
+    </script>
+</body>
+</html>

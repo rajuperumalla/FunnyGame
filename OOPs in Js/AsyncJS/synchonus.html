@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Synchronus</title>
+</head>
+<body>
+    <h1>Synchronus</h1>
+    <div class="ex"> hi </div>
+
+<script>
+    const d=document.querySelector(".ex");
+    d.textContent="textContent is ";
+    alert("hi this is raju perumalla")
+    d.style.background="red";
+    setTimeout(function(){
+        d.textContent="this is timeout fn";
+        d.style.color="white";
+    },5000);
+
+</script>
+
+    
+</body>
+</html>

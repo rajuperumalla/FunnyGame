@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="background-color:blue;color:black;text-align:center;">
+    <h1>Destructuring Object with real time </h1>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus, corrupti.</p>
+    <script>
+        const restarunt={
+            restName:"rajuBhaiRest",
+            restAdd:"hyderabad",
+            stater:["supps","tikka","drinks","coffes"],
+            address:"uppal,bharath nagar,hyderabad",
+            time:"11:40",
+            mcourse:["butterChiken","biryani","mutton","chickenTikka"],
+            order:function(statIndex,mainIndex){
+                return ` the first order is ${this.stater[statIndex]} and mainCourse is ${this.mcourse[mainIndex]}`
+            },
+            restCon:"929292929",
+            //passing function parameter is object *****
+            orderDelivery:function({statIndex,mainIndex,time="3.40am",address}){
+                console.log(`order received! ${this.stater[statIndex]} and ${this.mcourse[mainIndex]} will be delivered to ${address} at ${time}`);
+            }
+        }
+        //type one********************1111
+        console.log(restarunt.order(3,1));
+        ////type two******************2222
+        /// printing orderDelivery 
+        restarunt.orderDelivery({
+            // time:"10:30am",
+            address:"uppalHyderabd",
+            statIndex:2,
+            mainIndex:3,
+        });
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>getandset</title>
+</head>
+<body>
+    <h1>getandset</h1>
+    <script>
+         class Person{
+            constructor(firstName,dateOfBirth){
+                this.firstName=firstName;
+                this.dateOfBirth=dateOfBirth;
+            }
+            get Age(){
+                return 2023-this._dateOfBirth;
+            }
+            set dateOfBirth(dob){
+                if (dob>1985) this._dateOfBirth=dob;
+                else
+                alert(`${dob} is not valid So Enter a valid Date 🧐`);
+
+            }
+            set firstName(name){
+                if(name.includes(' ')) this._firstName=name;
+                else
+                alert(`${name} is not valid`);
+            }
+            get firstName(){
+                return ` this is my firstName ${this._firstName} `;
+            }
+
+            //static method ....
+            static hey(){
+                console.log("how are you man ");
+                console.log(this);
+            }
+
+        }
+        // prototypical inheritance in classes 
+        Person.prototype.introduce=function(){
+            console.log(`my name is (prototypeInherit) ${this._firstName}`);
+        }
+        const rock=new Person("rock raj",1995);
+        console.log(rock);
+        console.log(rock.Age);
+        const rj=new Person("r j",1990);
+        console.log(rj);
+        const john=new Person("okok",1990);
+        const jo=new Person("joo",1990);
+        const johnny=new Person("johnnay j",1984);
+        johnny.introduce();
+        Person.hey();   
+
+        
+
+    </script>
+</body>
+</html>

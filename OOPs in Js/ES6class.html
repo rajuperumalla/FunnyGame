@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EsClasses</title>
+
+</head>
+<body>
+    <h1>EsClasses</h1>
+    <script>
+        class Person{
+            constructor(firstName,dateOfBirth){
+                this.firstName=firstName;
+                this.dateOfBirth=dateOfBirth;
+            }
+            get Age(){
+                return 2023-this._dateOfBirth;
+            }
+            set dateOfBirth(dob){
+                if (dob>1985) this._dateOfBirth=dob;
+                else
+                alert(`${dob} is not valid So Enter a valid Date 🧐`);
+
+            }
+            set firstName(name){
+                if(name.includes(' ')) this._firstName=name;
+                else
+                alert(`${name} is not valid`);
+            }
+            get firstName(){
+                return ` this is my firstName ${this._firstName} `;
+            }
+            get dateOfBirth(){
+                return ` this is my dob ${this._dateOfBirth} `;
+                
+            }
+            calcAge(){
+                console.log(this._dateOfBirth);
+            }
+        }
+        class Student extends Person {
+            constructor(firstName,dateOfBirth,course){
+                super(firstName,dateOfBirth);
+                this.course=course;
+            }
+            // overding a method
+            calcAge(){
+                console.log(` this is childClass fn${this._dateOfBirth+100}`);
+            }
+           
+            }
+            const rajj=new Student("raj ra",1989,"cse");
+            const rock=new Person("roc  k",1996);
+            console.log(rajj);
+           console.log(rajj._dateOfBirth);
+            rajj.calcAge()
+           console.log(rock.calcAge());// this is undefined 
+            console.log(rock);
+            console.log(rock);
+    </script>
+</body>
+</html>

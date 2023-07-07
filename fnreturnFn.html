@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>funReturnFun</title>
+</head>
+<body>
+    <h1>funReturnFun</h1>
+    <script>
+        const greetings=greet1=>names=>console.log(`${names},this is ${greet1}`);
+          greetings("raju")("hai");
+//           function greet(name) {
+//   console.log(`Hello, ${name}!`);
+// }
+
+// greet.call(null, "John");
+// function greet(name) {
+//   console.log(`Hello, ${name}!`);
+// }
+
+// greet.apply(null, ["John"]);
+const person = {
+  name: "John",
+  greet: function (greeting) {
+    console.log(`${greeting}, ${this.name}!`);
+  }
+};
+
+person.greet("Hello"); // Output: "Hello, John!"
+
+const anotherPerson = {
+  name: "Jane"
+};
+person.greet('raju');
+const print=person.greet.bind(anotherPerson, "Hiiiiiiii");
+print(); // Output: "Hi, Jane!"
+person.greet.apply(anotherPerson, ["Hey"]); // Output: "Hey, Jane!"
+// apply is used to pass the multiple arguments at a time...so we can pass the array to function directly
+
+
+
+
+
+    </script>
+</body>
+</html>

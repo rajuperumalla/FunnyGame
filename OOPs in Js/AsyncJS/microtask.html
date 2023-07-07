@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>microTaskQueue</title>
+</head>
+<body>
+    <h1>microTaskQueue</h1>
+    <script>
+        console.log("line1");
+        Promise.resolve("Resolved promise inside timer").then(res=>
+        setTimeout(()=>console.log(res)),0);
+        setTimeout(()=>console.log("timer function"),0);
+        Promise.resolve("Resolved promise 1").then(res=>console.log(res));
+        const simplePromise=new Promise(function(resolve,reject){
+            if(Math.random()>=0.5){
+                resolve("yes! won the Game");
+            }else
+            {
+                reject("you Lost it Man!");
+            }
+        });
+        simplePromise.then(res=>console.log(res)).catch(err=>console.log(err));
+        const sample=new Promise(function(resolve){
+            resolve("yes this is resolved block SAMPLEPROMISE");
+        })
+        sample.then(res=>console.log(res)).catch(err=>console.log(err));
+        console.log("last line ");
+    </script>
+    
+</body>
+</html>

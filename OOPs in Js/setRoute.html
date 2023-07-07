@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Leaflet Navigation</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+  <style>
+    #map {
+      height: 400px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Leaflet Navigation</h1>
+  <div id="map"></div>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="https://unpkg.com/leaflet-routing-machine@3.3.1/dist/leaflet-routing-machine.js"></script>
+  <script>
+    // Create the Leaflet map
+    var map = L.map('map').setView([0, 0], 13);
+
+    // Add the tile layer
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors',
+      maxZoom: 18,
+    }).addTo(map);
+
+    // Retrieve the current location using the Geolocation API
+    navigator.geolocation.getCurrentPosition(
+      function (position) {
+        var latitude = position.coords.latitude;
+        var longitude = position.coords.longitude;
+
+        // Set the map's view to the current location
+        map.setView([latitude, longitude], 13);
+
+        // Add a marker at the current location
+        L.marker([latitude, longitude]).addTo(map);
+
+        // Calculate and display the route from the current location to a destination
+        var destination = L.latLng(17.9820644, 79.5970954); // Set the destination coordinates
+        L.Routing.control({
+          waypoints: [
+            L.latLng(latitude, longitude), // Current location as the starting point
+            destination, // Destination as the endpoint
+          ],
+          routeWhileDragging: true,
+        }).addTo(map);
+      },
+      function (error) {
+        console.log('Error retrieving current location:', error);
+      }
+    );
+  </script>
+</body>
+</html>

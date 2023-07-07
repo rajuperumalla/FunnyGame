@@ -1,0 +1,45 @@
+@keyframes shake {
+    0% {
+      transform: translateX(0);
+    }
+    25% {
+      transform: translateX(-5px);
+    }
+    50% {
+      transform: translateX(5px);
+    }
+    75% {
+      transform: translateX(-5px);
+    }
+    100% {
+      transform: translateX(0);
+    }
+  }
+  .celeb{
+    display: none;  
+  }
+  .shake {
+  animation: shake 0.5s;
+  
+  }
+  .hidden
+  {
+    display: none;
+  }
+
+  .blast {
+    animation: blast 0.5s linear both;
+  }
+  .anima{
+    
+  }
+  
+  @keyframes blast {
+    from {
+      transform: scale(1);
+    }
+    to {
+      transform: scale(1.5);
+      opacity: 0;
+    }
+  }

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Stock API Example</title>
+</head>
+<body>
+  <h1>Stock API Example</h1>
+  <div id="stock-data"></div>
+
+  <script>
+    // Define your Alpha Vantage API key
+    const apiKey = 'YOUR_API_KEY';
+
+    // Define the stock symbol you want to fetch data for
+    const stockSymbol = 'AAPL';
+
+    // Fetch stock data using Alpha Vantage API
+    fetch(`https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=${stockSymbol}&apikey=${apiKey}`)
+      .then(response => response.json())
+      .then(data => {
+        const stockData = data['Global Quote'];
+
+        // Display the stock data on the web page
+        const stockElement = document.getElementById('stock-data');
+        stockElement.innerHTML = `
+          <p>Symbol: ${stockData['01. symbol']}</p>
+          <p>Open: ${stockData['02. open']}</p>
+          <p>High: ${stockData['03. high']}</p>
+          <p>Low: ${stockData['04. low']}</p>
+          <p>Price: ${stockData['05. price']}</p>
+          <p>Volume: ${stockData['06. volume']}</p>
+          <p>Last Refreshed: ${stockData['07. latest trading day']}</p>
+        `;
+      })
+      .catch(error => {
+        console.log('Error fetching stock data:', error);
+      });
+  </script>
+</body>
+</html>

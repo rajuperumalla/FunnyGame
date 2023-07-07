@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Object.Create</title>
+
+</head>
+<body>
+    <h1>Object.Create</h1>
+    <script>
+        const Personproto={
+             Age(){
+                console.log(2023-this.dateOfBirth);
+            },
+            fullName(){
+                console.log(this.name);
+
+            },
+            init(name,dateOfBirth){
+                this.name=name;
+                this.dateOfBirth=dateOfBirth;
+            },
+        }
+        const raj=Object.create(Personproto);
+        raj.name="rajuperumalla";
+        raj.dateOfBirth=1998;
+        raj.Age();
+        raj.fullName();
+        console.log(raj.__proto__===Personproto);
+    </script>
+</body>
+</html>

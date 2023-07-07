@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=
+    , initial-scale=1.0">
+    <title>GeoLocation</title>
+</head>
+<body>
+    <h1>GeoLocation</h1>
+    <div class="target"></div>
+    <input type="button" value="GETLOCATION" class="clk" onclick="whereAm()">
+    <script>
+        /// type one only access the properties of geolocations
+        navigator.geolocation.getCurrentPosition(
+            position=>console.log(position),
+            err=>console.log(err)
+            );
+       // type two  add to promises 
+       const getPos=function(){
+        return new Promise(function(resolve,reject){
+            navigator.geolocation.getCurrentPosition(resolve,reject);
+        })
+       };
+       getPos().then((response)=>{
+            console.log(response.coords);
+           const lat=response.coords.latitude;
+           const lang=response.coords.longitude;
+           whereAm=function(){
+               fetch(`https://geocode.xyz/${lat},${lang}?geoit=json`).then((response)=>
+               response.json()).then((data)=>{
+                   var html=`<div class="details">
+                    <h2 class="country_name">⌘COUNTRYy👮🏻‍♀️: <span>${data.country}</span></h2>
+                    <h2 class="country_name">⌘CITY👮🏻‍♀️: <span>${data.city}</span></h2>
+                    <h2 class="country_cap" >REGION👑:</span><span >${data.region}</span>
+                        <h3 class="country_lang">AREA🧩: <span>${data.altgeocode}</span></h3>
+                        <h3 class="country_lang">Mandal🏛: <span>${data.osmtags.name}</span></h3>
+                        <h3 class="country_lang">PINCODE💌: <span>${data.postal}</span></h3>
+                        </div>`;
+                        console.log(data);
+                        console.log(lat);
+                        console.log(lang);
+                        const exe= document.querySelector(".target");
+                        exe.innerHTML=html;}
+                        ).catch((err)=>alert(err));
+//////////*****************************Country Data *******************//////////
+
+
+
+                    }
+    
+            });
+    </script>
+    
+</body>
+</html>

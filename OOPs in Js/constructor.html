@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>constructor</title>
+</head>
+<body>
+    <h1>constructor</h1>
+    <script>
+        const Person=function(name,dob){
+            this.name=name;
+            this.dob=dob;
+        }
+        const raju=new Person("raju",1995);
+        console.log(raju);
+        const rock=new Person("rock",28);
+        console.log(rock);
+        // prototypical inheritance **must be mention prototype 
+        Person.prototype.calcAge=function(){
+            console.log(2023-this.dob);
+        }
+        Person.prototype.introduce=function(){
+            console.log(`my name is ${this.name}`);
+        }
+       raju.calcAge();
+       rock.calcAge();
+       const ar=[1,2,3,4,5,6];
+       const fil=ar.filter(ele=>ele>3);
+       const maping=ar.map(ele=>ele*2);
+    const red=ar.reduce(ele=>ele>0);
+    console.log(red);
+       console.log(maping);
+       console.log(ar);
+       console.log(fil);
+       console.log(ar.__proto__);
+       console.log(ar.__proto__.__proto__);
+       console.log(ar.__proto__===Array.prototype);
+       const h1=document.querySelector('h1');
+       console.dir(h1);
+       raju.introduce();
+    </script>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>challenge2</title>
+
+</head>
+<body>
+    <h1>challenge2</h1>
+    <script>
+class Car{
+    constructor(name,speed){
+            this.name=name;
+            this.speed=speed;
+        }
+        accelerate(name,speed){
+            this.speed+=10;
+            console.log(`${this.name} goint At Speed ${this.speed}km/h`);
+            
+        }
+          break(name,speed){
+            this.speed-=10;
+            console.log(`${this.name} goint At Speed ${this.speed}km/h`);
+        }
+        get speedUS(){
+         return this.speed/1.6;
+        }
+        set speedUS(speed){
+            this.speed=speed*1.6;
+        }
+    };
+        const benz=new Car("benz",120);
+        console.log(benz.speedUS); 
+        benz.accelerate();
+        benz.accelerate();
+        benz.accelerate();
+        benz.accelerate();  
+        benz.speedUS=50;
+        console.log(benz);
+        console.log(benz.speedUS);
+        benz.accelerate();  
+        benz.accelerate();  
+        benz.accelerate(); 
+        console.log(benz); 
+        const audi=new Car("audi",100);
+        audi.accelerate();
+        audi.speedUS=100;
+        console.log(audi);
+
+
+    </script>
+    
+</body>
+</html>

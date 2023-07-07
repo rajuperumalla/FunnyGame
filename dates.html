@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>dates in js </title>
+</head>
+<body>
+    <h1>dates in js </h1>
+    <script>
+        console.log(new Date());
+        const timesNow=new Date(2037,10,19,15,23);
+        console.log(timesNow.getTime());
+        console.log(new Date(2142237180000));
+
+        console.log(timesNow.getFullYear()>new Date().getFullYear()?timesNow.getFullYear():new Date().getFullYear());
+        console.log(new Date().getFullYear());
+        const present=new Date();
+        console.log(present.getDate());
+        console.log(present.getHours());
+        console.log(present.getSeconds());
+        console.log(present.toISOString());
+        console.log(present.toUTCString());
+       const age=(dob)=>new Date().getFullYear()-dob;
+       console.log(age(1995));
+       console.log(age(2000));
+       console.log(timesNow.setFullYear(2050));
+       console.log(timesNow);
+      
+    </script>
+    <p id="time"></p>
+    <script>
+        function timer(){
+            function presents(){
+                const present=new Date();
+                const hour=String(present.getHours()).padStart(2, "0");
+                const mins=String(present.getMinutes()).padStart(2, "0");
+                const sec=String(present.getSeconds()).padStart(2, "0");
+                document.getElementById("time").innerHTML=`Hours:${hour}:Mins:${mins}:Sec:${sec}`;
+                // console.log(hour,mins,sec);
+            }
+            presents();
+        }
+        setInterval(timer,1000);
+    </script>
+    
+</body>
+</html>

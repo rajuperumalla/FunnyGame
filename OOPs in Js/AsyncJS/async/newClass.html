@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>new class creations</h1>
+    <script>
+        class raj{
+            constructor(name,dob,add){
+                this.name=name;
+                this.dob=dob;
+                this.add=add;
+            }
+            get fullName(){
+              return `my name is ${this._name}`;
+            }
+            set name(sample){
+                if(sample.includes(' ')) this._name=sample;
+                else
+                alert(`${sample} is not valid`);
+            }
+            get actualName(){
+                return `this is my acutal as per cer ${this._name}`;
+            }
+            set dob(age){
+                if(age>1992) this._dob=age;
+                else
+                alert(`${age} is not valid`);
+            }
+            greet(){
+                console.log(`hi welcome ${this._name}`);
+            }
+        }
+        raj.prototype.nowAge=function(){
+            console.log(2023-this._dob);
+        }
+
+        const rock=new raj("peumalla raju",1993,"uppal");
+        const ro=new raj("peumalla raju",1994,"uppal");
+        console.log(typeof raj);
+        console.log(ro);
+      console.log(rock.fullName);
+      console.log(ro.actualName);
+      rock.greet();
+        rock.nowAge();
+      /// type two 
+      console.log("type 2222222222222228888***************");
+      const Person=function(name,dob){
+        this.name=name;
+        this.dob=dob;
+      }
+      Person.prototype.calAge=function(){
+        console.log(2023-this.dob);
+      }
+      console.log(typeof Person);
+      const rose=new Person("raju",1995);
+      rose.calAge();
+    </script>
+    <script>
+      console.log("functions");
+      function a(){
+        let b =10;
+        b=900;
+           function c(){
+          console.log(b);
+        }
+        return c;
+      }
+      a()();
+    </script>
+</body>
+</html>

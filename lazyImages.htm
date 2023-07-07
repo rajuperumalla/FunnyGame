@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Lazy Loading Example</title>
+  <style>
+    .image {
+      width: 300px;
+      height: 200px;
+      margin: 10px;
+      background-color: lightgray;
+    }
+  </style>
+</head>
+<body>
+  <img class="image" data-src="image1.jpg" >
+  <img class="image" data-src="image1.jpg" >
+  <img class="image" data-src="image1.jpg" >
+  <img class="image" data-src="image1.jpg" >
+  <img class="image" data-src="image1.jpg" >
+<script>
+    var lazyImages = document.querySelectorAll('.image');
+
+function lazyLoadImage(image) {
+  var src = image.getAttribute('data-src');
+
+  if (src) {
+    image.src = src;
+    image.removeAttribute('data-src');
+  }
+}
+
+var options = {
+  rootMargin: '0px',
+  threshold: 0.1
+};
+
+var observer = new IntersectionObserver(function(entries, observer) {
+  entries.forEach(function(entry) {
+    if (entry.isIntersecting) {
+      lazyLoadImage(entry.target);
+      observer.unobserve(entry.target);
+    }
+  });
+}, options);
+
+lazyImages.forEach(function(image) {
+  observer.observe(image);
+});
+document.addEventListener("DOMContentLoaded",function(e){
+    console.log("html parsed and DOM tree Built",e);
+    
+
+});
+</script>
+</body>
+</html>

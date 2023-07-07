@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>api challenge</title>
+</head>
+<body>
+    <h1>api challenge</h1>
+    <div class="target"></div>
+    <script>
+        // const print=function(data){
+        //     var html=`<div class="details">
+        //                 <h2 class="country_name">⌘country👮🏻‍♀️: <span>${data.country}</span></h2>
+        //                 <h2 class="country_name">⌘city👮🏻‍♀️: <span>${data.city}</span></h2>
+        //                 <h2 class="country_cap" >region👑:</span><span >${data.region}</span>
+        //                     <h3 class="country_lang">altgeocode🥁: <span>${data.altgeocode}</span></h3>
+        //                     </div>`;
+        //                    const exe= document.querySelector(".target");
+        //                    exe.innerHTML=html;
+        // };
+        const whereAm=function(lat,lang){
+            fetch(`https://geocode.xyz/${lat},${lang}?geoit=json`).then((response)=>
+            response.json()).then((data)=>{
+                var html=`<div class="details">
+                        <h2 class="country_name">⌘country👮🏻‍♀️: <span>${data.country}</span></h2>
+                        <h2 class="country_name">⌘city👮🏻‍♀️: <span>${data.city}</span></h2>
+                        <h2 class="country_cap" >region👑:</span><span >${data.region}</span>
+                            <h3 class="country_lang">altgeocode🥁: <span>${data.altgeocode}</span></h3>
+                            </div>`;
+                            console.log(data);
+                           const exe= document.querySelector(".target");
+                           exe.innerHTML=html;}
+                ).catch((err)=>alert(err));
+    
+                
+            }
+            whereAm(17.385044,78.486671);
+
+
+    </script>
+    
+</body>
+</html>

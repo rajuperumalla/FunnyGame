@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>maps examples</title>
+</head>
+<body>
+    <h1>maps examples</h1>
+    <script>
+        const array10=[10,20,30,40,50,60,60,70,80,90,100];
+       const forEachArray10 = array10.forEach(function(elements){
+            return elements;
+        });
+        console.log(forEachArray10);// its prints undefined 
+       const newArry10= array10.map(function(elementss){
+            return elementss;
+        })
+        console.log(newArry10);
+        // its creates a new array...
+        // ************************* type 2 *******************//
+        const newArry11=[];
+        array10.forEach(function(ele){
+            newArry11.push(ele/2);
+        });
+        console.log(newArry11);
+        const account1={
+            userName:"raju perumalla",
+            mobileNo:"9129292949",
+            adderess:"uppal"
+        };
+        const account2={
+            userName:"jhansi perumalla",
+            mobileNo:"9129292949",
+            adderess:"uppal"
+        };
+        const account3={
+            userName:"stephen jack joyce",
+            mobileNo:"9129292949",
+            adderess:"uppal"
+        };
+        const account4={
+            userName:"smith roy joyce",
+            mobileNo:"9129292949",
+            adderess:"uppal"
+        };
+        const accounts=[account1,account2,account3,account4];
+
+        console.log(account1);
+        console.log(account1.userName);
+        const createUserId=function(accounts){
+            accounts.forEach(function(acc)
+            {
+                acc.userId=acc.userName
+                .toLowerCase()
+                .split(" ")
+                .map(elt=> elt[0]).join("");
+            });
+            // side effects fo the map is its inject as a new object in account as a userId
+        };
+        createUserId(accounts);
+        console.log(account1);
+        console.log(account2);
+        console.log(account3);
+
+
+
+
+
+
+
+    //     const names=["raju","peru","malla","thiru","mala","giri"];
+    //          const newNames=names.map(ele=>ele[0]);
+    //          console.log(newNames);
+    //          const arrow=[];
+    //   const newNamesArray= names.forEach(element => arrow.push(element[0]));
+    //      console.log(newNamesArray);
+    //      console.log(arrow);
+
+
+    const dnc=[20,200,400,-100,-200,400,500,-300];
+    
+    const fordep=[];
+    dnc.forEach(function(elements){
+        if(elements<0)
+        fordep.push(elements);
+    });
+    console.log(fordep);
+    const dep=dnc.filter(function(ele){
+            return ele<0;
+        });
+        console.log(dep);
+        // cool output 
+        const withdrals=dnc.filter(ele=>ele<0);
+        console.log(withdrals);
+        const totalBal=dnc.reduce((acc,cur,i,arr)=>acc+cur,0);
+        console.log(totalBal);
+        const max=dnc.reduce((acc,cur)=>{
+            if(acc>cur) return acc;
+            else return cur;
+        },dnc[0]
+        );
+        console.log(max);
+        
+        ///**************** find an averange of the array *********/////
+
+        const ar=[1,2,3,4,5,6,7,8,9];
+        const newAr=ar.map(ele=>ele*1.1).filter(ele=>ele>5).reduce((acc,ele,i,arr)=>acc+ele/arr.length,0);
+        console.log(newAr);
+        console.log("count of the greater then 5");
+        const grNew=ar.reduce((acc,ele,i,arr)=>ele>=5?acc+1:acc,0);
+        console.log(grNew);
+        
+        ////    ***************  using find method   *****************     ////
+        
+        const findName=accounts.find(acc=>acc.userName==="raju perumalla");
+        console.log(findName);
+        const firstWithdral=dnc.find(ele=>ele<0);
+        console.log(firstWithdral);
+        
+        const arrass=[1,2,22,22,2,2,32,23];
+        const ar10=arrass;
+        console.log(ar10);
+        const ar11=arrass.slice();
+        console.log(ar11);
+        ar11.pop(0);
+        console.log(ar11);
+        const lessThenArray=ar.reduce((acc,cur)=>cur>6?acc+1:acc,0);
+        console.log(lessThenArray);
+        // const dnc=[20,200,400,-100,-200,400,500,-300];
+           const {deps,withh}=dnc.reduce((sum,cur)=>
+           {cur>0?(sum.deps+=cur):(sum.withh+=cur);
+            return sum;},
+            {deps:0,withh:0});
+            console.log(deps,withh);
+            console.log('capital every first letter');
+            const capitalFirst=function(str){
+                const exceptions=["an","is","of","or"]
+               return str.split(" ").map((word,i,arr)=>exceptions.includes(word)?word:word[0].toUpperCase()+word.slice(1)).join(" ");
+            }
+        console.log(capitalFirst("this is simple example of capital every first letter"));
+        const ar1=[[1, 2, 3], [100, 2, 1, 10]];
+        const ar1New=new Set(ar1.flat());
+        console.log(ar1New);
+        const str="this is raju perumalal";
+        const strToArray=str.split(" ");
+        console.log(strToArray);
+        console.log(str[0]);
+        console.log(str[0].toUpperCase()+str.slice(1));
+          const dogs=[
+            {owner:["raju","swetha"],weight:23,curFood:250},
+            {owner:["dov","cha"],weight:25,curFood:340},
+            {owner:["raju","boble"],weight:23,curFood:400}
+        ];
+        console.log(dogs);
+        dogs.forEach(element => element.reqFood=element.weight*3);
+        console.log(dogs);
+        const findOwner=dogs.find((dog)=>dog.owner.includes("raju"));/// first Occurance of the array
+        // filter is used to find all occurance in the given array
+        console.log(findOwner);
+         console.log(Array.from(str));
+         const test=[1,2,3,4,5,6,7,8];
+         console.log(Array.from(test));
+         
+         console.log(Array.from(test,num=>num*2));
+         
+
+        </script>
+</body>
+</html>
