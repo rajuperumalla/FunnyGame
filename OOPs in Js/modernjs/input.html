@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>input changes</title>
+</head>
+<body id="b1">
+    <h1 >input change</h1>
+    <h1 id="heading">input change</h1> 
+    <input type="color" onchange="clr()" name="color" id="scolor">
+    <input type="button" name="changeColor" value="changeColor" onclick="clr()">
+    <input type="text" name="One" oninput="change()" id="one" placeholder="type something...">
+    <p id="show"></p>
+    <!-- <input type="button" value="clickhere" onclick="change()"> -->
+    <script>
+        function clr(){
+           let x= document.body;
+           let y=document.getElementById("scolor");
+           x.style.background=y.value;
+        }
+      function change(){
+       let x= document.getElementById("one");
+       let y=document.getElementById("show");
+       let z=document.getElementById("heading");
+    //    x.value=x.value.toUpperCase();
+       z.innerHTML=x.value.toUpperCase();
+       if(x.value.includes(String("raj"))||x.value.includes("@")||x.value.includes(".")||x.value.search(/\d/) !== -1)
+       {
+           y.style.color="red";
+        //    this.x.value=this.x.value.toUpperCase();
+        // alert("raju here");
+       }
+       else if(x.value.length>=15){
+        x.value=" ";
+    }
+    else
+    y.style.color="black";
+       y.innerHTML=x.value.toUpperCase();
+
+      }
+      change();
+    </script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>navigatorGeo</title>
+</head>
+<body>
+    <h1>navigatorGeo</h1>
+    <script>
+        const getPos=function()
+        {
+            return new Promise(function(resolve,reject){
+                navigator.geolocation.getCurrentPosition(resolve,reject);
+            })
+        };
+        getPos().then((response)=>{
+            console.log(response.coords);
+           const lat=response.coords.latitude;
+           const lang=response.coords.longitude;
+           console.log(lat,lang);});
+    </script>
+    
+</body>
+</html>

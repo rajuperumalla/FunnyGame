@@ -26,12 +26,12 @@ function perform(){
        return document.getElementById("guessvalue").innerHTML=message;
     };
     
-    if(!x)
+    if(!x || x>20)
     {
         document.querySelector(".wingame").textContent="Funny Game";
-        display("The field should not be empty");
+        display("The field should not be empty/less 20");
         count=count-1;
-        window.alert("please Enter a numer");
+        window.alert("please Enter a numer/less 20");
     }
     else if(x===y)
     {
